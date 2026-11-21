@@ -8,7 +8,7 @@ import retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlin.jvm.java
 
 object RetrofitCliente {
-    private const val BASE_URL = "https://sibcap.com/app_sibcap/"
+    private const val BASE_URL = "https://sibcap.com/app_sibcap/apis/"
 
     private val jsonConfig = Json {
         ignoreUnknownKeys = true
