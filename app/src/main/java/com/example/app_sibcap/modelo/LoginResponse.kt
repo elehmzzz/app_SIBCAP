@@ -1,4 +1,4 @@
-package com.example.app_sibcap.MODELO
+package com.example.app_sibcap.modelo
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

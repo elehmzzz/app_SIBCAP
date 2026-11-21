@@ -1,4 +1,4 @@
-package com.example.app_sibcap.MODELO
+package com.example.app_sibcap.modelo
 
 import com.example.app_sibcap.interfaceApi.ApiService
 import kotlinx.serialization.json.Json

@@ -1,11 +1,9 @@
 package com.example.app_sibcap.interfaceApi
 
-import com.example.app_sibcap.MODELO.LoginRequest
-import com.example.app_sibcap.MODELO.LoginResponse
-import com.example.app_sibcap.VISTA.LoginActivity
+import com.example.app_sibcap.modelo.LoginRequest
+import com.example.app_sibcap.modelo.LoginResponse
 import retrofit2.http.Body
 import retrofit2.http.POST
-import retrofit2.http.GET
 
 interface ApiService {
 
