@@ -1,0 +1,28 @@
+package com.example.app_sibcap.modelo
+
+import com.example.app_sibcap.interfaceApi.ApiService
+import kotlinx.serialization.json.Json
+import okhttp3.MediaType.Companion.toMediaType
+import retrofit2.Retrofit
+import retrofit2.converter.kotlinx.serialization.asConverterFactory
+import kotlin.jvm.java
+
+object RetrofitCliente {
+    private const val BASE_URL = "https://sibcap.com/app_sibcap/apis/"
+
+    private val jsonConfig = Json {
+        ignoreUnknownKeys = true
+        coerceInputValues = true
+        isLenient =true
+    }
+
+    val apiService: ApiService by lazy {
+        val contentType = "application/json".toMediaType()
+        Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(jsonConfig.asConverterFactory(contentType))
+            .build()
+            .create(ApiService::class.java)
+    }
+
+}
