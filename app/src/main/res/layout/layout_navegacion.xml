@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    BARRA DE NAVEGACIÓN INFERIOR (compartida por todo el equipo)
+    Catálogo | Mis préstamos | Mi perfil
+    Úsala abajo de tu pantalla con:
+        <include android:id="@+id/navegacion" layout="@layout/layout_navegacion" ... />
+    y en tu Activity:
+        Plantilla.configurarNavegacion(this, Plantilla.CATALOGO)   // o PRESTAMOS / PERFIL
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="72dp"
+    android:background="@color/fondo_campo"
+    android:orientation="horizontal">
+
+    <!-- Catálogo -->
+    <FrameLayout
+        android:id="@+id/navCatalogo"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="?attr/selectableItemBackground"
+        android:contentDescription="@string/plantilla_catalogo">
+
+        <View
+            android:id="@+id/indicadorCatalogo"
+            android:layout_width="64dp"
+            android:layout_height="3dp"
+            android:layout_gravity="top|center_horizontal"
+            android:background="@color/texto_principal"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_nav_catalogo" />
+    </FrameLayout>
+
+    <!-- Mis préstamos -->
+    <FrameLayout
+        android:id="@+id/navPrestamos"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="?attr/selectableItemBackground"
+        android:contentDescription="@string/plantilla_mis_prestamos">
+
+        <View
+            android:id="@+id/indicadorPrestamos"
+            android:layout_width="64dp"
+            android:layout_height="3dp"
+            android:layout_gravity="top|center_horizontal"
+            android:background="@color/texto_principal"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_nav_prestamos" />
+    </FrameLayout>
+
+    <!-- Mi perfil -->
+    <FrameLayout
+        android:id="@+id/navPerfil"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="?attr/selectableItemBackground"
+        android:contentDescription="@string/plantilla_mi_perfil">
+
+        <View
+            android:id="@+id/indicadorPerfil"
+            android:layout_width="64dp"
+            android:layout_height="3dp"
+            android:layout_gravity="top|center_horizontal"
+            android:background="@color/texto_principal"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_nav_perfil" />
+    </FrameLayout>
+</LinearLayout>

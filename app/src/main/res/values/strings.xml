@@ -1,3 +1,74 @@
 <resources>
-    <string name="app_name">app_SIBCAP</string>
+    //texto estandar para el login
+    <string name="app_name">SIBCAP</string>
+    <string name="titulo_bienvenida">BIENVENIDO A SIBCAP</string>
+    <string name="desc_logo">Logo de SIBCAP</string>
+    <string name="label_usuario_correo">Usuario o correo electrónico</string>
+    <string name="hint_usuario_correo">pedro@gmail.com</string>
+    <string name="label_contrasenia">Contraseña</string>
+    <string name="hint_contrasenia">********</string>
+    <string name="btn_iniciar_sesion">Iniciar sesión</string>
+    <string name="link_registro">¿No tienes cuenta? <b>Regístrate como lector</b></string>
+
+    //textos estandar para el registro
+    <string name="label_nombres">Nombre(s)</string>
+    <string name="label_apellido_paterno">Apellido paterno</string>
+    <string name="hint_paterno">Paterno</string>
+    <string name="label_apellido_materno">Apellido materno</string>
+    <string name="hint_materno">Materno</string>
+    <string name="label_fecha_nacimiento">Fecha de nacimiento</string>
+    <string name="hint_fecha_nacimiento">Selecciona tu fecha</string>
+    <string name="label_telefono">Teléfono</string>
+    <string name="label_correo">Correo electrónico</string>
+    <string name="label_municipio">Municipio</string>
+    <string name="label_colonia">Colonia</string>
+    <string name="label_codigo_postal">Código postal</string>
+    <string name="label_nombre_usuario">Usuario</string>
+    <string name="label_confirmar_contrasenia">Confirmar contraseña</string>
+    <string name="btn_crear_cuenta">Crear cuenta</string>
+    <string name="link_iniciar_sesion">¿Ya tienes cuenta? <b>Inicia sesión</b></string>
+
+    <!-- textos de la plantilla compartida (encabezado y barra inferior) -->
+    <string name="plantilla_logo_sibcap">Logo SIBCAP</string>
+    <string name="plantilla_sibcap">SIBCAP</string>
+    <string name="plantilla_regresar">Regresar</string>
+    <string name="plantilla_catalogo">Catálogo</string>
+    <string name="plantilla_mis_prestamos">Mis préstamos</string>
+    <string name="plantilla_mi_perfil">Mi perfil</string>
+
+    <!-- textos de Bienvenida (Jhonatan) -->
+    <string name="bienvenida_bienvenido_a_tu_biblioteca">¡Bienvenido a tu biblioteca!</string>
+    <string name="bienvenida_descubre_como_consultar_libros">Descubre cómo consultar libros, revisar tus préstamos y solicitar títulos.</string>
+    <string name="bienvenida_reproducir_video_como_usar">Reproducir video: cómo usar SIBCAP</string>
+    <string name="bienvenida_video_como_usar_sibcap">Video: cómo usar SIBCAP</string>
+    <string name="bienvenida_escuchar_guia_en_audio">Escuchar guía en audio</string>
+    <string name="bienvenida_puedes_ver_el_video">Puedes ver el video o escuchar el audio. Ambos son opcionales.</string>
+    <string name="bienvenida_ir_a_mi_catalogo">Ir a mi catálogo</string>
+    <string name="bienvenida_omitir_introduccion">Omitir introducción</string>
+    <string name="bienvenida_disponible_despues_desde_mi">Disponible después desde Mi perfil</string>
+
+    <!-- textos de Catálogo (Jhonatan) -->
+    <string name="catalogo_catalogo">Catálogo</string>
+    <string name="catalogo_encuentra_libros_y_consulta">Encuentra libros y consulta sus detalles.</string>
+    <string name="catalogo_buscar_un_libro">Buscar un libro</string>
+    <string name="catalogo_titulo_autor">Título, autor</string>
+    <string name="catalogo_buscar">Buscar</string>
+    <string name="catalogo_categorias">Categorías</string>
+    <string name="catalogo_selecciona_una_categoria_para">Selecciona una categoría para filtrar.</string>
+    <string name="catalogo_libros_destacados">Libros destacados</string>
+    <string name="catalogo_ver_mas_libros">Ver más libros</string>
+    <string name="catalogo_descubre_tu_proxima_lectura">Descubre tu próxima lectura y visita la biblioteca para consultar o pedir el libro en persona.</string>
+
+    <!-- textos de tarjeta de libro del Catálogo (Jhonatan) -->
+    <string name="item_libro_portada_del_libro">Portada del libro</string>
+    <string name="item_libro_ver_detalles">Ver detalles</string>
+
+    <!-- textos de Detalle del libro (Jhonatan) -->
+    <string name="detalle_portada_del_libro">Portada del libro</string>
+    <string name="detalle_titulo">Título</string>
+    <string name="detalle_autor">Autor</string>
+    <string name="detalle_categoria">Categoría</string>
+    <string name="detalle_disponibles">Disponibles</string>
+    <string name="detalle_descripcion">Descripción</string>
+    <string name="detalle_isbn">ISBN</string>
 </resources>

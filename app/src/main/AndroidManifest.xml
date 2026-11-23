@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App_SIBCAP">
         <activity
-            android:name=".vista.MainActivity"
+            android:name=".vista.LoginActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
@@ -24,14 +24,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- vista que se debe abrir es el BienvenidaActivity -->
         <activity
-            android:name=".vista.LoginActivity"
+            android:name=".vista.MainActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".vista.RegistroActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+
+        <!-- Jhonatan: Bienvenida, Catálogo y Detalle del libro -->
+        <activity
+            android:name=".vista.BienvenidaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".vista.CatalogoActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".vista.DetalleLibroActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
