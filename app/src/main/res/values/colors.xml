@@ -2,4 +2,16 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Paleta SIBCAP (tomada del Figma). Úsenla todos en sus pantallas -->
+    <color name="verde_principal">#205D61</color>   <!-- encabezado, botones, íconos -->
+    <color name="fondo_app">#E5EBE5</color>         <!-- fondo de las pantallas -->
+    <color name="fondo_tarjeta">#F0F3ED</color>     <!-- tarjetas, cajas de texto, barra inferior -->
+    <color name="borde_tarjeta">#CCDBD1</color>
+    <color name="texto_titulo">#203B3A</color>
+    <color name="texto_negro">#21272A</color>
+    <color name="texto_secundario">#4C5A59</color>
+    <color name="texto_etiqueta">#5E6B68</color>
+    <color name="texto_pie">#8A918F</color>
+    <color name="rojo_no_disponible">#B3412F</color>
 </resources>

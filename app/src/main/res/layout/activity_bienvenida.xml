@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Bienvenida multimedia — Responsable: Jhonatan -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo_app"
+    android:orientation="vertical"
+    tools:context=".vista.BienvenidaActivity">
+
+    <!-- Encabezado compartido -->
+    <include
+        android:id="@+id/encabezado"
+        layout="@layout/layout_encabezado" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="28dp"
+            android:paddingTop="40dp"
+            android:paddingBottom="24dp">
+
+            <TextView
+                android:id="@+id/txtSaludo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="¡Bienvenido a tu biblioteca!"
+                android:textColor="@color/texto_titulo"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtMensaje"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="Descubre cómo consultar libros, revisar tus préstamos y solicitar títulos."
+                android:textColor="@color/texto_secundario"
+                android:textSize="15sp" />
+
+            <!-- Video: cómo usar SIBCAP -->
+            <FrameLayout
+                android:id="@+id/frameVideo"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/bg_video"
+                android:clickable="true"
+                android:contentDescription="Reproducir video: cómo usar SIBCAP"
+                android:focusable="true">
+
+                <VideoView
+                    android:id="@+id/videoBienvenida"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/layoutPortadaVideo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_play" />
+
+                    <TextView
+                        android:id="@+id/txtVideo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="Video: cómo usar SIBCAP"
+                        android:textColor="@color/white"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <ProgressBar
+                    android:id="@+id/pbVideo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+            <!-- Guía en audio -->
+            <LinearLayout
+                android:id="@+id/layoutAudio"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_campo"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="20dp">
+
+                <ImageView
+                    android:id="@+id/imgAudio"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_audio" />
+
+                <TextView
+                    android:id="@+id/txtAudio"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:text="Escuchar guía en audio"
+                    android:textColor="@color/verde_principal"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <ProgressBar
+                    android:id="@+id/pbAudio"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="Puedes ver el video o escuchar el audio. Ambos son opcionales."
+                android:textColor="@color/texto_secundario"
+                android:textSize="14sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnIrCatalogo"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginTop="36dp"
+                android:backgroundTint="@color/verde_principal"
+                android:text="Ir a mi catálogo"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:cornerRadius="12dp" />
+
+            <TextView
+                android:id="@+id/txtOmitir"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:text="Omitir introducción"
+                android:textColor="@color/verde_principal"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="Disponible después desde Mi perfil"
+                android:textColor="@color/texto_secundario"
+                android:textSize="13sp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
