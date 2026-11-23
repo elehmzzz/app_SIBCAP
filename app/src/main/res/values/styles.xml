@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Títulos de cada campo -->
+    <style name="EtiquetaFormulario">
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:textColor">@color/texto_principal</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- Caja con borde (TextInputLayout) -->
+    <style name="CajaFormulario" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_marginTop">6dp</item>
+        <item name="boxBackgroundColor">@color/fondo_campo</item>
+        <item name="boxCornerRadiusTopStart">10dp</item>
+        <item name="boxCornerRadiusTopEnd">10dp</item>
+        <item name="boxCornerRadiusBottomStart">10dp</item>
+        <item name="boxCornerRadiusBottomEnd">10dp</item>
+        <item name="boxStrokeColor">@color/borde_campo_selector</item>
+        <item name="hintEnabled">false</item>
+    </style>
+
+    <!-- Campo donde se escribe (TextInputEditText) -->
+    <style name="CampoFormulario">
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@color/texto_principal</item>
+        <item name="android:textColorHint">@color/texto_hint</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+</resources>

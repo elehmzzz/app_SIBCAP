@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Cuando el campo está seleccionado -->
+    <item android:color="@color/verde_oscuro" android:state_focused="true" />
+    <!-- Cuando el campo NO está seleccionado -->
+    <item android:color="@color/borde_campo" />
+</selector>

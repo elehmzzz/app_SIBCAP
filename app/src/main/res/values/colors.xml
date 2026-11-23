@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    //colores del sistema de SIBCAP
+    <color name="fondo_login">#E5EBE5</color>
+    <color name="verde_oscuro">#205D61</color>
+    <color name="texto_principal">#1F3B3A</color>
+    <color name="fondo_campo">#F0F2EE</color>
+    <color name="borde_campo">#CBD8CC</color>
+    <color name="texto_hint">#6B7B78</color>
 </resources>

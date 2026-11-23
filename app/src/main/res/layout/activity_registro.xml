@@ -1,10 +1,379 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/fondo_login"
+    android:fillViewport="true"
     tools:context=".vista.RegistroActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="24dp"
+        android:paddingTop="40dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="32dp">
+
+        <!-- Título -->
+        <TextView
+            android:id="@+id/txtTituloRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/titulo_bienvenida"
+            android:textColor="@color/texto_principal"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <!-- Logo -->
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="80dp"
+            android:layout_height="110dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:contentDescription="@string/desc_logo"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_logo" />
+
+        <!-- 1. Nombre(s) -->
+        <TextView
+            android:id="@+id/txtNombres"
+            style="@style/EtiquetaFormulario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/edtNombres"
+            android:text="@string/label_nombres" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilNombres"
+            style="@style/CajaFormulario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtNombres"
+                style="@style/CampoFormulario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="personGivenName"
+                android:hint="@string/label_nombres"
+                android:inputType="textPersonName|textCapWords" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- 2. Apellido paterno -->
+        <TextView
+            android:id="@+id/txtApellidoPaterno"
+            style="@style/EtiquetaFormulario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/edtApellidoPaterno"
+            android:text="@string/label_apellido_paterno" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilApellidoPaterno"
+            style="@style/CajaFormulario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtApellidoPaterno"
+                style="@style/CampoFormulario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="personFamilyName"
+                android:hint="@string/hint_paterno"
+                android:inputType="textPersonName|textCapWords" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- 3. Apellido materno -->
+        <TextView
+            android:id="@+id/txtApellidoMaterno"
+            style="@style/EtiquetaFormulario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/edtApellidoMaterno"
+            android:text="@string/label_apellido_materno" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilApellidoMaterno"
+            style="@style/CajaFormulario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtApellidoMaterno"
+                style="@style/CampoFormulario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_materno"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName|textCapWords" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- 4. Fecha de nacimiento (abre calendario, no se escribe) -->
+        <TextView
+            android:id="@+id/txtFechaNacimiento"
+            style="@style/EtiquetaFormulario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/edtFechaNacimiento"
+            android:text="@string/label_fecha_nacimiento" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilFechaNacimiento"
+            style="@style/CajaFormulario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtFechaNacimiento"
+                style="@style/CampoFormulario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:hint="@string/hint_fecha_nacimiento"
+                android:importantForAutofill="no"
+                android:inputType="none" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- 5. Teléfono -->
+        <TextView
+            android:id="@+id/txtTelefono"
+            style="@style/EtiquetaFormulario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/edtTelefono"
+            android:text="@string/label_telefono" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilTelefono"
+            style="@style/CajaFormulario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtTelefono"
+                style="@style/CampoFormulario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="phone"
+                android:hint="@string/label_telefono"
+                android:inputType="phone"
+                android:maxLength="10" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- 6. Correo -->
+        <TextView
+            android:id="@+id/txtCorreo"
+            style="@style/EtiquetaFormulario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/edtCorreo"
+            android:text="@string/label_correo" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilCorreo"
+            style="@style/CajaFormulario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtCorreo"
+                style="@style/CampoFormulario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="emailAddress"
+                android:hint="@string/label_correo"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- 7. Municipio -->
+        <TextView
+            android:id="@+id/txtMunicipio"
+            style="@style/EtiquetaFormulario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/edtMunicipio"
+            android:text="@string/label_municipio" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilMunicipio"
+            style="@style/CajaFormulario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtMunicipio"
+                style="@style/CampoFormulario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/label_municipio"
+                android:importantForAutofill="no"
+                android:inputType="textCapWords" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- 8. Colonia -->
+        <TextView
+            android:id="@+id/txtColonia"
+            style="@style/EtiquetaFormulario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/edtColonia"
+            android:text="@string/label_colonia" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilColonia"
+            style="@style/CajaFormulario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtColonia"
+                style="@style/CampoFormulario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/label_colonia"
+                android:importantForAutofill="no"
+                android:inputType="textCapWords" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- 9. Código postal -->
+        <TextView
+            android:id="@+id/txtCodigoPostal"
+            style="@style/EtiquetaFormulario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/edtCodigoPostal"
+            android:text="@string/label_codigo_postal" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilCodigoPostal"
+            style="@style/CajaFormulario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtCodigoPostal"
+                style="@style/CampoFormulario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="postalCode"
+                android:hint="@string/label_codigo_postal"
+                android:inputType="number"
+                android:maxLength="5" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- 10. Nombre de usuario -->
+        <TextView
+            android:id="@+id/txtNombreUsuario"
+            style="@style/EtiquetaFormulario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/edtNombreUsuario"
+            android:text="@string/label_nombre_usuario" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilNombreUsuario"
+            style="@style/CajaFormulario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtNombreUsuario"
+                style="@style/CampoFormulario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="username"
+                android:hint="@string/label_nombre_usuario"
+                android:inputType="text|textNoSuggestions" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- 11. Contraseña (con ojito) -->
+        <TextView
+            android:id="@+id/txtContrasenia"
+            style="@style/EtiquetaFormulario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/edtContrasenia"
+            android:text="@string/label_contrasenia" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilContrasenia"
+            style="@style/CajaFormulario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/texto_hint">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtContrasenia"
+                style="@style/CampoFormulario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="newPassword"
+                android:hint="@string/hint_contrasenia"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--te -->
+        <TextView
+            android:id="@+id/txtConfirmarContrasenia"
+            style="@style/EtiquetaFormulario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/edtConfirmarContrasenia"
+            android:text="@string/label_confirmar_contrasenia" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilConfirmarContrasenia"
+            style="@style/CajaFormulario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/texto_hint">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtConfirmarContrasenia"
+                style="@style/CampoFormulario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="newPassword"
+                android:hint="@string/label_confirmar_contrasenia"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <!-- Botón -->
+        <Button
+            android:id="@+id/btnCrearCuenta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="@color/verde_oscuro"
+            android:text="@string/btn_crear_cuenta"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Link para regresar al login -->
+        <TextView
+            android:id="@+id/txtIniciaSesion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/link_iniciar_sesion"
+            android:textColor="@color/verde_oscuro"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+</ScrollView>
