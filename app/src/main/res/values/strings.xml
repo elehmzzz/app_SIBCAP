@@ -1,3 +1,30 @@
 <resources>
-    <string name="app_name">app_SIBCAP</string>
+    //texto estandar para el login
+    <string name="app_name">SIBCAP</string>
+    <string name="titulo_bienvenida">BIENVENIDO A SIBCAP</string>
+    <string name="desc_logo">Logo de SIBCAP</string>
+    <string name="label_usuario_correo">Usuario o correo electrónico</string>
+    <string name="hint_usuario_correo">pedro@gmail.com</string>
+    <string name="label_contrasenia">Contraseña</string>
+    <string name="hint_contrasenia">********</string>
+    <string name="btn_iniciar_sesion">Iniciar sesión</string>
+    <string name="link_registro">¿No tienes cuenta? <b>Regístrate como lector</b></string>
+
+    //textos estandar para el registro
+    <string name="label_nombres">Nombre(s)</string>
+    <string name="label_apellido_paterno">Apellido paterno</string>
+    <string name="hint_paterno">Paterno</string>
+    <string name="label_apellido_materno">Apellido materno</string>
+    <string name="hint_materno">Materno</string>
+    <string name="label_fecha_nacimiento">Fecha de nacimiento</string>
+    <string name="hint_fecha_nacimiento">Selecciona tu fecha</string>
+    <string name="label_telefono">Teléfono</string>
+    <string name="label_correo">Correo electrónico</string>
+    <string name="label_municipio">Municipio</string>
+    <string name="label_colonia">Colonia</string>
+    <string name="label_codigo_postal">Código postal</string>
+    <string name="label_nombre_usuario">Usuario</string>
+    <string name="label_confirmar_contrasenia">Confirmar contraseña</string>
+    <string name="btn_crear_cuenta">Crear cuenta</string>
+    <string name="link_iniciar_sesion">¿Ya tienes cuenta? <b>Inicia sesión</b></string>
 </resources>

@@ -7,7 +7,7 @@ import kotlinx.serialization.Serializable
 class LoginResponse (
     @SerialName("exito") val exito: Boolean = false,
     @SerialName("mensaje") val mensaje: String = "",
-    @SerialName("token") val token: String? = null,
-    @SerialName("nombre") val nombre: String? = null,
-    @SerialName("tipoUsuario") val tipoUsuario: String? = null,
-    @SerialName("rol") val rol: String? = null, )
+    @SerialName("token") val token: String = "",
+    @SerialName("nombre") val nombre: String = "",
+    @SerialName("tipoUsuario") val tipoUsuario: String = "",
+    @SerialName("rol") val rol: String = "", )
