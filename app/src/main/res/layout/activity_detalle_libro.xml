@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Detalle del libro — Responsable: Jhonatan -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo_login"
+    android:orientation="vertical"
+    tools:context=".vista.DetalleLibroActivity">
+
+    <!-- Encabezado compartido con flecha de regreso -->
+    <include
+        android:id="@+id/encabezado"
+        layout="@layout/layout_encabezado_regresar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="28dp"
+            android:paddingTop="48dp"
+            android:paddingBottom="32dp">
+
+            <!-- Título, autor y portada -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imgDetallePortada"
+                    android:layout_width="120dp"
+                    android:layout_height="190dp"
+                    android:background="@color/verde_oscuro"
+                    android:contentDescription="@string/detalle_portada_del_libro"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@android:drawable/ic_menu_gallery" />
+
+                <TextView
+                    android:id="@+id/lblTitulo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/detalle_titulo"
+                    android:textColor="@color/texto_etiqueta"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toStartOf="@id/imgDetallePortada"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txtDetalleTitulo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="16dp"
+                    android:textColor="@color/texto_principal"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@id/imgDetallePortada"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/lblTitulo"
+                    tools:text="Cien años de soledad" />
+
+                <TextView
+                    android:id="@+id/lblAutor"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/detalle_autor"
+                    android:textColor="@color/texto_etiqueta"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toStartOf="@id/imgDetallePortada"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtDetalleTitulo" />
+
+                <TextView
+                    android:id="@+id/txtDetalleAutor"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="16dp"
+                    android:textColor="@color/texto_principal"
+                    android:textSize="17sp"
+                    app:layout_constraintEnd_toStartOf="@id/imgDetallePortada"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/lblAutor"
+                    tools:text="Gabriel García Márquez" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ProgressBar
+                android:id="@+id/pbDetalle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:visibility="gone" />
+
+            <!-- Categoría y Disponibles -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_tarjeta"
+                    android:minHeight="100dp"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/detalle_categoria"
+                        android:textColor="@color/texto_etiqueta"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/txtDetalleCategoria"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:textColor="@color/texto_principal"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        tools:text="Novela" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_tarjeta"
+                    android:minHeight="100dp"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/detalle_disponibles"
+                        android:textColor="@color/texto_etiqueta"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/txtDetalleDisponibles"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/verde_oscuro"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        tools:text="4" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Descripción -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="@string/detalle_descripcion"
+                android:textColor="@color/texto_etiqueta"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/txtDetalleDescripcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:lineSpacingMultiplier="1.25"
+                android:textColor="@color/texto_principal"
+                android:textSize="17sp"
+                tools:text="La novela narra la historia de siete generaciones de la familia Buendía..." />
+
+            <!-- ISBN -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/bg_tarjeta"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/detalle_isbn"
+                    android:textColor="@color/texto_etiqueta"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/txtDetalleIsbn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:textColor="@color/texto_principal"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:text="9780307474728" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Barra de navegación compartida -->
+    <include
+        android:id="@+id/navegacion"
+        layout="@layout/layout_navegacion" />
+</LinearLayout>
