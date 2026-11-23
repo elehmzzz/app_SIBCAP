@@ -27,7 +27,7 @@ class clsLoginPresenter(private val view: LoginActivity) {
                 }
 
                 if(respuesta.exito){
-                    view.loginExitoso(respuesta.mensaje, respuesta.nombre + "jeje")
+                    view.loginExitoso(respuesta.mensaje, respuesta.nombre)
                 }else{
                     view.mostrarError(respuesta.mensaje)
                 }
