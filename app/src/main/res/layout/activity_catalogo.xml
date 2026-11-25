@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Catálogo — Responsable: Jhonatan -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo_login"
+    android:orientation="vertical"
+    tools:context=".vista.CatalogoActivity">
+
+    <!-- Encabezado compartido -->
+    <include
+        android:id="@+id/encabezado"
+        layout="@layout/layout_encabezado" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="28dp"
+            android:paddingTop="40dp"
+            android:paddingBottom="32dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/catalogo_catalogo"
+                android:textColor="@color/texto_negro"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtBienvenida"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:textColor="@color/texto_secundario"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                tools:text="¡Bienvenido(a), Valeria!"
+                tools:visibility="visible" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/catalogo_encuentra_libros_y_consulta"
+                android:textColor="@color/texto_negro"
+                android:textSize="16sp" />
+
+            <!-- Buscar un libro -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:text="@string/catalogo_buscar_un_libro"
+                android:textColor="@color/texto_negro"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_campo_texto"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="18dp"
+                android:paddingEnd="6dp">
+
+                <EditText
+                    android:id="@+id/txtBuscar"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="@string/catalogo_titulo_autor"
+                    android:imeOptions="actionSearch"
+                    android:inputType="text"
+                    android:maxLength="100"
+                    android:textColor="@color/texto_negro"
+                    android:textColorHint="@color/texto_etiqueta"
+                    android:textSize="16sp" />
+
+                <ImageButton
+                    android:id="@+id/btnBuscar"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/catalogo_buscar"
+                    android:src="@drawable/ic_buscar" />
+            </LinearLayout>
+
+            <!-- Categorías -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/catalogo_categorias"
+                android:textColor="@color/texto_negro"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/catalogo_selecciona_una_categoria_para"
+                android:textColor="@color/texto_secundario"
+                android:textSize="14sp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_campo_texto">
+
+                <Spinner
+                    android:id="@+id/spnCategorias"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="40dp" />
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="16dp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_flecha_abajo" />
+            </FrameLayout>
+
+            <!-- Libros destacados -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="56dp"
+                android:text="@string/catalogo_libros_destacados"
+                android:textColor="@color/texto_principal"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <ProgressBar
+                android:id="@+id/pbCatalogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="24dp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/txtMensaje"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="center"
+                android:textColor="@color/texto_secundario"
+                android:textSize="16sp"
+                android:visibility="gone"
+                tools:text="No se encontraron libros." />
+
+            <!-- RecyclerView: cada libro usa item_libro.xml -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvLibros"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:nestedScrollingEnabled="false"
+                tools:itemCount="3"
+                tools:listitem="@layout/item_libro" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnVerMas"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="@color/verde_oscuro"
+                android:text="@string/catalogo_ver_mas_libros"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:visibility="gone"
+                app:cornerRadius="12dp"
+                tools:visibility="visible" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:gravity="center"
+                android:lineSpacingMultiplier="1.3"
+                android:text="@string/catalogo_descubre_tu_proxima_lectura"
+                android:textColor="@color/texto_etiqueta"
+                android:textSize="17sp" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Barra de navegación compartida -->
+    <include
+        android:id="@+id/navegacion"
+        layout="@layout/layout_navegacion" />
+</LinearLayout>

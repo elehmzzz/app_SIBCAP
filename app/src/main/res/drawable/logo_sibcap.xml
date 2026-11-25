@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Logo SIBCAP dibujado en vector a partir del diseño.
+     Si tienen el logo oficial en PNG, bórrenlo y pongan logo_sibcap.png en drawable -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="30dp"
+    android:height="48dp"
+    android:viewportWidth="40"
+    android:viewportHeight="64">
+    <!-- cabeza -->
+    <path android:fillColor="#D8D6BD" android:pathData="M11.5,12a7.5,7.5 0,1 0,15 0a7.5,7.5 0,1 0,-15 0z" />
+    <!-- lomo izquierdo -->
+    <path android:fillColor="#5A8675" android:pathData="M8,21.5a1.5,1.5 0,0 1,1.5 -1.5h1.5a1.5,1.5 0,0 1,1.5 1.5V57H8z" />
+    <!-- páginas -->
+    <path android:fillColor="#D8D6BD" android:pathData="M14,22h11v34h-11z" />
+    <path android:fillColor="#79988E" android:pathData="M17.3,23h1.2v32h-1.2z" />
+    <path android:fillColor="#79988E" android:pathData="M21,23h1.2v32h-1.2z" />
+    <!-- lomo derecho -->
+    <path android:fillColor="#C48945" android:pathData="M26,21.5a1.5,1.5 0,0 1,1.5 -1.5h1a1.5,1.5 0,0 1,1.5 1.5V60h-4z" />
+    <!-- base -->
+    <path android:fillColor="#CCBC51" android:pathData="M8,56.5h19v4h-19z" />
+</vector>
