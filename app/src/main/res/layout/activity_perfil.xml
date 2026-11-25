@@ -1,22 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/lector_fondo"
-    android:fillViewport="true"
+    android:orientation="vertical"
     tools:context=".vista.PerfilActivity">
 
-    <LinearLayout
+    <!-- Encabezado compartido -->
+    <include
+        android:id="@+id/encabezado"
+        layout="@layout/layout_encabezado" />
+
+    <!-- Contenido desplazable -->
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingStart="22dp"
-        android:paddingEnd="22dp"
-        android:paddingTop="70dp"
-        android:paddingBottom="40dp">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="22dp"
+            android:paddingEnd="22dp"
+            android:paddingTop="40dp"
+            android:paddingBottom="40dp">
 
         <!-- Título -->
         <TextView
@@ -125,6 +137,13 @@
             android:textSize="15sp"
             android:textStyle="bold" />
 
-    </LinearLayout>
+        </LinearLayout>
 
-</ScrollView>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Barra de navegación compartida -->
+    <include
+        android:id="@+id/navegacion"
+        layout="@layout/layout_navegacion" />
+
+</LinearLayout>
