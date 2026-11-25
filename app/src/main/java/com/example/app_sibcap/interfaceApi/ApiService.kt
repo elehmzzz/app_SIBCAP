@@ -7,10 +7,12 @@ import com.example.app_sibcap.modelo.RegistroRequest
 import com.example.app_sibcap.modelo.RegistroResponse
 import com.example.app_sibcap.modelo.dataDetalleLibro
 import com.example.app_sibcap.modelo.dataLibros
+import com.example.app_sibcap.modelo.PerfilResponse
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Query
+import retrofit2.http.Header
 
 interface ApiService {
 
@@ -34,5 +36,9 @@ interface ApiService {
     @GET("detalle_libro.php")
     suspend fun obtenerDetalleLibro(@Query("id_libro") idLibro: Int): ApiResponse<dataDetalleLibro>
 
-
+    //EndPoint para consultar el perfil del lector (Alexa)
+    @GET("perfil.php")
+    suspend fun obtenerPerfil(
+        @Header("Authorization") token: String
+    ): PerfilResponse
 }
