@@ -18,7 +18,7 @@ interface ApiService {
     @POST("login.php")
     suspend fun iniciarSesion(@Body request: LoginRequest): LoginResponse
 
-    //EndPoint para el registro de un usuario
+    //EndPoint para el registro de un usuario Tello?
     @POST("registro.php")
     suspend fun regitrarLector(@Body request: RegistroRequest): RegistroResponse
 
