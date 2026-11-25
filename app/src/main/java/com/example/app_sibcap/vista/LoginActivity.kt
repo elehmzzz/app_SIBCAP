@@ -60,8 +60,9 @@ class LoginActivity : AppCompatActivity() {
     //funcion cuando el login es exitoso
     fun loginExitoso(mensaje: String, nombreCliente:String){
         Toast.makeText(this,mensaje, Toast.LENGTH_LONG).show()
-        //se manda a llamar la vista
-        val intent = Intent(this, MainActivity::class.java)
+        //se manda a llamar la vista de Bienvenida con el nombre del lector
+        val intent = Intent(this, BienvenidaActivity::class.java)
+        intent.putExtra("NOMBRE_USUARIO", nombreCliente)
         startActivity(intent)
         finish()
     }

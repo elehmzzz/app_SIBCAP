@@ -33,6 +33,25 @@
             android:name=".vista.RegistroActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+
+        <!-- Alexa: Mi perfil -->
+        <activity
+            android:name=".vista.PerfilActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Jhonatan: Bienvenida, Catálogo y Detalle del libro -->
+        <activity
+            android:name=".vista.BienvenidaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".vista.CatalogoActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".vista.DetalleLibroActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>
