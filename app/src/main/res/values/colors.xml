@@ -2,4 +2,24 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+
+    <!-- Colores del módulo Lector de SIBCAP -->
+
+    <color name="lector_primario">#205D61</color>
+    <color name="lector_fondo">#E5EBE5</color>
+    <color name="lector_tarjeta">#F0F3ED</color>
+
+    <color name="lector_texto_principal">#203B3A</color>
+    <color name="lector_texto_secundario">#42625B</color>
+
+    <color name="lector_boton_primario">#205D61</color>
+    <color name="lector_texto_boton_primario">#FFFFFF</color>
+
+    <color name="lector_boton_secundario">#F0F3ED</color>
+    <color name="lector_texto_boton_secundario">#205D61</color>
+
+    <color name="lector_borde_boton_secundario">#CBD8CC</color>
+    <color name="lector_borde_suave">#CBD8CC</color>
+
 </resources>
