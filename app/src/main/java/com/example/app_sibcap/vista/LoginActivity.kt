@@ -47,6 +47,8 @@ class LoginActivity : AppCompatActivity() {
         //listener del boton
         btnIniciarSesion.setOnClickListener(this::ejecutarInicioSesion)
 
+        lnkRegistroLector.setOnClickListener(this::cambiarVistaRegistrarLector)
+
 
     }
 
@@ -71,4 +73,11 @@ class LoginActivity : AppCompatActivity() {
     fun mostrarError(mensaje:String){
         Toast.makeText(this,mensaje, Toast.LENGTH_LONG).show()
     }
+
+    fun cambiarVistaRegistrarLector(v: View){
+        val intent = Intent(this, RegistroActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
 }
