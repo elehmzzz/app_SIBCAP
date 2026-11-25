@@ -43,7 +43,8 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
-
+    //agrega material components para mejorar el desarrollo del diseño de las vistas
+    implementation("com.google.android.material:material:1.12.0")
     // 2. Librería principal de Kotlinx Serialization Json
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
 

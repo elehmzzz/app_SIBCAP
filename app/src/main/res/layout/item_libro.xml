@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tarjeta de un libro en el RecyclerView del Catálogo — Responsable: Jhonatan -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:background="@drawable/bg_tarjeta"
+    android:clickable="true"
+    android:focusable="true"
+    android:padding="14dp">
+
+    <ImageView
+        android:id="@+id/imgPortada"
+        android:layout_width="70dp"
+        android:layout_height="112dp"
+        android:background="@color/verde_oscuro"
+        android:contentDescription="@string/item_libro_portada_del_libro"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@android:drawable/ic_menu_gallery" />
+
+    <TextView
+        android:id="@+id/txtTitulo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="4dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="@color/texto_principal"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imgPortada"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Cien años de soledad" />
+
+    <TextView
+        android:id="@+id/txtAutor"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/texto_secundario"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/txtTitulo"
+        app:layout_constraintTop_toBottomOf="@id/txtTitulo"
+        tools:text="Gabriel García Márquez" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnVerDetalles"
+        android:layout_width="wrap_content"
+        android:layout_height="56dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/verde_oscuro"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="@string/item_libro_ver_detalles"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtAutor"
+        app:layout_constraintVertical_bias="1" />
+
+    <TextView
+        android:id="@+id/txtCategoria"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/verde_oscuro"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/btnVerDetalles"
+        app:layout_constraintEnd_toStartOf="@id/btnVerDetalles"
+        app:layout_constraintStart_toStartOf="@id/txtTitulo"
+        app:layout_constraintTop_toTopOf="@id/btnVerDetalles"
+        tools:text="Novela" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
