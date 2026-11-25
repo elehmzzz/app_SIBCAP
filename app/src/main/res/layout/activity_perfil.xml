@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lector_fondo"
+    android:fillViewport="true"
+    tools:context=".vista.PerfilActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="22dp"
+        android:paddingEnd="22dp"
+        android:paddingTop="70dp"
+        android:paddingBottom="40dp">
+
+        <!-- Título -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mi perfil"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/lector_texto_principal" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Información de tu cuenta de lector"
+            android:textSize="14sp"
+            android:textColor="@color/lector_texto_secundario" />
+
+        <!-- Resumen de cuenta -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@color/lector_tarjeta"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Valeria López"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/lector_texto_principal" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Lector"
+                android:textSize="14sp"
+                android:textColor="@color/lector_texto_secundario" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Cuenta activa"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#1976D2" />
+        </LinearLayout>
+
+        <!-- Sección de datos -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:layout_marginBottom="20dp"
+            android:text="MIS DATOS"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="@color/lector_texto_secundario" />
+
+        <!-- Nombre -->
+        <include
+            layout="@layout/item_dato_perfil"
+            android:id="@+id/datoNombre" />
+
+        <!-- Apellido paterno -->
+        <include
+            layout="@layout/item_dato_perfil"
+            android:id="@+id/datoApellidoPaterno" />
+
+        <!-- Apellido materno -->
+        <include
+            layout="@layout/item_dato_perfil"
+            android:id="@+id/datoApellidoMaterno" />
+
+        <!-- Correo -->
+        <include
+            layout="@layout/item_dato_perfil"
+            android:id="@+id/datoCorreo" />
+
+        <!-- Usuario -->
+        <include
+            layout="@layout/item_dato_perfil"
+            android:id="@+id/datoUsuario" />
+
+        <!-- Teléfono -->
+        <include
+            layout="@layout/item_dato_perfil"
+            android:id="@+id/datoTelefono" />
+
+        <!-- Botón -->
+        <Button
+            android:id="@+id/btnOpcionesCuenta"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/lector_boton_primario"
+            android:backgroundTint="@null"
+            android:text="Opciones de cuenta ›"
+            android:textAllCaps="false"
+            android:textColor="@color/lector_texto_boton_primario"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</ScrollView>

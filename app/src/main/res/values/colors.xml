@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    //colores del sistema de SIBCAP
+
+    <!-- Colores básicos -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Colores del sistema de SIBCAP -->
     <color name="fondo_login">#E5EBE5</color>
     <color name="verde_oscuro">#205D61</color>
     <color name="texto_principal">#1F3B3A</color>
@@ -9,9 +14,30 @@
     <color name="texto_hint">#6B7B78</color>
 
     <!-- Colores extra de la plantilla (Catálogo, Detalle, barras compartidas) -->
-    <color name="white">#FFFFFFFF</color>
     <color name="texto_negro">#21272A</color>
     <color name="texto_secundario">#4C5A59</color>
     <color name="texto_etiqueta">#5E6B68</color>
     <color name="rojo_no_disponible">#B3412F</color>
+
+    <!-- Colores del módulo Lector de SIBCAP -->
+    <color name="lector_primario">#205D61</color>
+    <color name="lector_fondo">#E5EBE5</color>
+    <color name="lector_tarjeta">#F0F3ED</color>
+
+    <color name="lector_texto_principal">#203B3A</color>
+    <color name="lector_texto_secundario">#42625B</color>
+
+    <color name="lector_boton_primario">#205D61</color>
+    <color name="lector_texto_boton_primario">#FFFFFF</color>
+
+    <color name="lector_boton_secundario">#F0F3ED</color>
+    <color name="lector_texto_boton_secundario">#205D61</color>
+
+    <color name="lector_borde_boton_secundario">#CBD8CC</color>
+    <color name="lector_borde_suave">#CBD8CC</color>
+
+    <!-- Colores requeridos por los componentes compartidos -->
+    <color name="fondo_tarjeta">@color/lector_tarjeta</color>
+    <color name="borde_tarjeta">@color/lector_borde_suave</color>
+
 </resources>
