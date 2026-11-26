@@ -42,15 +42,6 @@ class PerfilActivity : AppCompatActivity() {
             val intent = Intent(this, OpcionesCuentaActivity::class.java)
             startActivity(intent)
         }
-
-        // Consultar datos del perfil
-        val token = intent.getStringExtra("TOKEN")
-
-        if (!token.isNullOrBlank()) {
-            presenter.obtenerPerfil(token)
-        } else {
-            mostrarError("Debes iniciar sesión para consultar tu perfil.")
-        }
     }
 
 
@@ -88,6 +79,22 @@ class PerfilActivity : AppCompatActivity() {
         txtValor.text = valor
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        consultarPerfil()
+    }
+
+    private fun consultarPerfil() {
+
+        val token = intent.getStringExtra("TOKEN")
+
+        if (!token.isNullOrBlank()) {
+            presenter.obtenerPerfil(token)
+        } else {
+            mostrarError("Debes iniciar sesión para consultar tu perfil.")
+        }
+    }
 
     fun mostrarPerfil(datos: DatosPerfil) {
         configurarDato(datoNombre, "Nombres", datos.nombres)

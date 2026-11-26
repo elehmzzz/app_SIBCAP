@@ -1,6 +1,7 @@
 package com.example.app_sibcap.vista
 
 import android.os.Bundle
+import android.content.Intent
 import android.widget.Button
 import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
@@ -11,7 +12,11 @@ import android.app.Dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.WindowManager
+import com.example.app_sibcap.modelo.DatosPerfil
 import com.example.app_sibcap.presentador.clsEditarPerfilPresenter
+import android.view.View
+import android.widget.LinearLayout
+import android.widget.TextView
 
 class EditarPerfilActivity : AppCompatActivity() {
 
@@ -19,6 +24,8 @@ class EditarPerfilActivity : AppCompatActivity() {
     private lateinit var edtCorreo: EditText
     private lateinit var edtTelefono: EditText
     private lateinit var btnGuardarCambios: Button
+    private lateinit var contenedorCarga: LinearLayout
+    private lateinit var txtEstadoCarga: TextView
 
     // PRESENTADOR
     private lateinit var presenter: clsEditarPerfilPresenter
@@ -34,6 +41,7 @@ class EditarPerfilActivity : AppCompatActivity() {
         inicializarComponentes()
         presenter = clsEditarPerfilPresenter(this)
         configurarEventos()
+        habilitarFormulario(false)
     }
 
     private fun inicializarComponentes() {
@@ -41,6 +49,31 @@ class EditarPerfilActivity : AppCompatActivity() {
         edtCorreo = findViewById(R.id.edtCorreo)
         edtTelefono = findViewById(R.id.edtTelefono)
         btnGuardarCambios = findViewById(R.id.btnGuardarCambios)
+
+        contenedorCarga = findViewById(R.id.contenedorCarga)
+        txtEstadoCarga = findViewById(R.id.txtEstadoCarga)
+    }
+
+    private fun habilitarFormulario(habilitado: Boolean) {
+        edtUsuario.isEnabled = habilitado
+        edtCorreo.isEnabled = habilitado
+        edtTelefono.isEnabled = habilitado
+        btnGuardarCambios.isEnabled = habilitado
+    }
+
+    fun mostrarCarga(mensaje: String) {
+        txtEstadoCarga.text = mensaje
+        contenedorCarga.visibility = View.VISIBLE
+        habilitarFormulario(false)
+    }
+
+    fun ocultarCarga() {
+        contenedorCarga.visibility = View.GONE
+    }
+    fun mostrarErrorGuardado(mensaje: String) {
+        ocultarCarga()
+        habilitarFormulario(true)
+        mostrarError(mensaje)
     }
 
     private fun configurarEventos() {
@@ -55,8 +88,56 @@ class EditarPerfilActivity : AppCompatActivity() {
         }
     }
 
+    fun mostrarDatos(datos: DatosPerfil) {
+        edtUsuario.setText(datos.nombreUsuario)
+        edtCorreo.setText(datos.correo)
+        edtTelefono.setText(datos.telefono ?: "")
+
+        habilitarFormulario(true)
+    }
+
     fun mostrarError(mensaje: String) {
         Toast.makeText(this, mensaje, Toast.LENGTH_LONG).show()
+    }
+
+    fun mostrarEdicionExitosa() {
+
+        val dialogo = Dialog(this)
+
+        dialogo.setContentView(R.layout.dialog_edicion_exitosa)
+
+        val btnVolverPerfil = dialogo.findViewById<Button>(
+            R.id.btnVolverPerfil
+        )
+
+        btnVolverPerfil.setOnClickListener {
+            dialogo.dismiss()
+
+            val intent = Intent(this, PerfilActivity::class.java)
+
+            intent.addFlags(
+                Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                        Intent.FLAG_ACTIVITY_SINGLE_TOP
+            )
+
+            startActivity(intent)
+            finish()
+        }
+
+        dialogo.setCancelable(false)
+        dialogo.show()
+
+        dialogo.window?.apply {
+            setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+            setLayout(
+                (resources.displayMetrics.widthPixels * 0.88).toInt(),
+                WindowManager.LayoutParams.WRAP_CONTENT
+            )
+
+            addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+            setDimAmount(0.30f)
+        }
     }
 
     fun mostrarConfirmacion(
