@@ -47,6 +47,8 @@ class LoginActivity : AppCompatActivity() {
         //listener del boton
         btnIniciarSesion.setOnClickListener(this::ejecutarInicioSesion)
 
+        lnkRegistroLector.setOnClickListener(this::cambiarVistaRegistrarLector)
+
 
     }
 
@@ -58,17 +60,29 @@ class LoginActivity : AppCompatActivity() {
 
 
     //funcion cuando el login es exitoso
-    fun loginExitoso(mensaje: String, nombreCliente:String){
-        Toast.makeText(this,mensaje, Toast.LENGTH_LONG).show()
-        //se manda a llamar la vista de Bienvenida con el nombre del lector
+    fun abrirBienvenida(nombre: String, usuario: String) {
         val intent = Intent(this, BienvenidaActivity::class.java)
-        intent.putExtra("NOMBRE_USUARIO", nombreCliente)
+        intent.putExtra("NOMBRE_USUARIO", nombre)
+        intent.putExtra("USUARIO", usuario)
         startActivity(intent)
         finish()
     }
 
+    fun abrirCatalogo(nombre: String) {
+        val intent = Intent(this, CatalogoActivity::class.java)
+        intent.putExtra("NOMBRE_USUARIO", nombre)
+        startActivity(intent)
+        finish()
+    }
     //funcion que recibe el mensaje de error, enviado de presentador
     fun mostrarError(mensaje:String){
         Toast.makeText(this,mensaje, Toast.LENGTH_LONG).show()
     }
+
+    fun cambiarVistaRegistrarLector(v: View){
+        val intent = Intent(this, RegistroActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
 }

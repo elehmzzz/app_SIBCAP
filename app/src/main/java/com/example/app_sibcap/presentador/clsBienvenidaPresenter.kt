@@ -1,6 +1,7 @@
 package com.example.app_sibcap.presentador
 
 import android.content.Intent
+import com.example.app_sibcap.modelo.clsPreferenciasModelo
 import com.example.app_sibcap.vista.BienvenidaActivity
 import com.example.app_sibcap.vista.CatalogoActivity
 
@@ -17,9 +18,11 @@ class clsBienvenidaPresenter(val vista: BienvenidaActivity) {
     private var nombreUsuario: String? = null
     private var audioSonando = false
 
-    fun iniciar(nombre: String?) {
-        // Se guarda para mandarlo al Catálogo ("¡Bienvenido(a), Valeria!")
+    fun iniciar(nombre: String?, usuario: String?) {
         nombreUsuario = nombre
+        if (!usuario.isNullOrBlank()) {
+            clsPreferenciasModelo(vista).marcarBienvenidaVista(usuario)
+        }
     }
 
     // ---- Video ----

@@ -9,12 +9,21 @@ import com.example.app_sibcap.R
 
 class RegistroActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+
+
+
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_registro)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            val barras = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            val teclado = insets.getInsets(WindowInsetsCompat.Type.ime())
+            v.setPadding(
+                barras.left,
+                barras.top,
+                barras.right,
+                maxOf(barras.bottom, teclado.bottom)  // usa el que sea más alto
+            )
             insets
         }
     }
