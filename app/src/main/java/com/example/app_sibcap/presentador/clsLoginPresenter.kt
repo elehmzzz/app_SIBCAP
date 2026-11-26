@@ -2,12 +2,13 @@ package com.example.app_sibcap.presentador
 
 import android.view.View
 import com.example.app_sibcap.modelo.clsLoginModelo
+import com.example.app_sibcap.modelo.clsPreferenciasModelo
 import com.example.app_sibcap.vista.LoginActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-
+import com.example.app_sibcap.modelo.SesionManager
 class clsLoginPresenter(private val view: LoginActivity) {
 
     private val modelo = clsLoginModelo()
@@ -26,10 +27,15 @@ class clsLoginPresenter(private val view: LoginActivity) {
                     modelo.autenticarUsuario(usuario, clave)
                 }
 
-                if(respuesta.exito){
-                    view.loginExitoso(respuesta.mensaje, respuesta.nombre)
-                }else{
-                    view.mostrarError(respuesta.mensaje)
+                if (respuesta.exito) {
+                    SesionManager(view).guardar(respuesta.token, respuesta.tipoUsuario, respuesta.nombre)
+
+                    val preferencias = clsPreferenciasModelo(view)
+                    if (preferencias.yaVioBienvenida(usuario)) {
+                        view.abrirCatalogo(respuesta.nombre)
+                    } else {
+                        view.abrirBienvenida(respuesta.nombre, usuario)
+                    }
                 }
 
             }catch (e: Exception){

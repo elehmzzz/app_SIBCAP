@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Colores tomados del Figma del lector (página PROGRAMACION MOckup - LECTOR y MOCKUP ESTADOS).
+     Llevan el prefijo sib_ para no chocar con los colores que ya existan en el proyecto. -->
+<resources>
+    <color name="sib_fondo">#E5EBE5</color>
+    <color name="sib_encabezado">#205D61</color>
+    <color name="sib_primario">#205D61</color>
+    <color name="sib_tarjeta">#F0F3ED</color>
+    <color name="sib_borde">#A8C4B6</color>
+    <color name="sib_borde_fuerte">#90B4A3</color>
+    <color name="sib_texto">#21272A</color>
+    <color name="sib_texto_secundario">#50575B</color>
+    <color name="sib_texto_etiqueta">#526961</color>
+    <color name="sib_texto_valor">#203B3A</color>
+    <color name="sib_texto_resumen">#262E38</color>
+    <color name="sib_texto_estado">#42625B</color>
+    <color name="sib_rojo">#B42318</color>
+    <color name="sib_multa">#8D5038</color>
+    <color name="sib_aviso_fondo">#F4E3CE</color>
+    <color name="sib_aviso_borde">#C59A72</color>
+    <color name="sib_ok_fondo">#D8EBDD</color>
+    <color name="sib_filtro_fondo">#D9E8DE</color>
+    <color name="sib_filtro_borde">#78A996</color>
+    <color name="sib_circulo_carga">#FFF0C9</color>
+    <color name="sib_circulo_error">#F1DDD8</color>
+    <color name="sib_error_icono">#854A40</color>
+    <color name="sib_portada">#225C56</color>
+    <color name="sib_blanco">#FFFFFF</color>
+</resources>

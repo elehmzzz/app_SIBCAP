@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lector_fondo"
+    android:orientation="vertical"
+    tools:context=".vista.EditarPerfilActivity"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    >
+
+    <!-- Encabezado reutilizable -->
+    <include
+        android:id="@+id/encabezado"
+        layout="@layout/layout_encabezado_regresar" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="22dp"
+            android:paddingEnd="22dp"
+            android:paddingTop="70dp"
+            android:paddingBottom="40dp">
+
+            <!-- Título -->
+            <TextView
+                android:id="@+id/txtTitulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Información personal"
+                android:textColor="@color/texto_negro"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <!-- Descripción -->
+            <TextView
+                android:id="@+id/txtDescripcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:text="Actualiza los datos de contacto y acceso de tu cuenta."
+                android:textColor="@color/texto_hint"
+                android:textSize="14sp" />
+
+            <!-- Indicador de carga -->
+            <LinearLayout
+                android:id="@+id/contenedorCarga"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:visibility="gone">
+
+                <ProgressBar
+                    android:id="@+id/progresoCarga"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:indeterminate="true"
+                    android:indeterminateTint="@color/lector_primario" />
+
+                <TextView
+                    android:id="@+id/txtEstadoCarga"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:textColor="@color/lector_texto_secundario"
+                    android:textSize="14sp"
+                    android:accessibilityLiveRegion="polite"
+                    tools:text="Cargando información…" />
+
+            </LinearLayout>
+
+            <!-- Usuario -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:labelFor="@id/edtUsuario"
+                android:text="Usuario"
+                android:textColor="@color/texto_negro"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edtUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_campo_texto"
+                android:paddingHorizontal="16dp"
+                android:inputType="textNoSuggestions"
+                android:maxLines="1"
+                android:textColor="@color/texto_negro"
+                android:textSize="15sp"
+                tools:text="valeria.lopez" />
+
+            <!-- Correo electrónico -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:labelFor="@id/edtCorreo"
+                android:text="Correo electrónico"
+                android:textColor="@color/texto_negro"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edtCorreo"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_campo_texto"
+                android:paddingHorizontal="16dp"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:textColor="@color/texto_negro"
+                android:textSize="15sp"
+                tools:text="valeria@ejemplo.mx" />
+
+            <!-- Teléfono -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:labelFor="@id/edtTelefono"
+                android:text="Teléfono"
+                android:textColor="@color/texto_negro"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edtTelefono"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_campo_texto"
+                android:paddingHorizontal="16dp"
+                android:inputType="phone"
+                android:maxLines="1"
+                android:textColor="@color/texto_negro"
+                android:textSize="15sp"
+                tools:text="771 000 0000" />
+
+            <!-- Nota sobre contraseña -->
+            <TextView
+                android:id="@+id/txtNotaContrasenia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="38dp"
+                android:text="Para modificar tu contraseña, utiliza la opción independiente «Cambiar contraseña»."
+                android:textColor="@color/texto_hint"
+                android:textSize="14sp" />
+
+            <!-- Guardar cambios -->
+            <Button
+                android:id="@+id/btnGuardarCambios"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="48dp"
+                android:background="@drawable/lector_boton_primario"
+                app:backgroundTint="@color/lector_boton_primario"
+                android:text="Guardar cambios"
+                android:textAllCaps="false"
+                android:textColor="@color/lector_texto_boton_primario"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

@@ -51,7 +51,25 @@
         <activity
             android:name=".vista.DetalleLibroActivity"
             android:exported="false" />
+        <activity
+            android:name=".vista.OpcionesCuentaActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".vista.EditarPerfilActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <!-- Hermelinda: Mis préstamos y detalle -->
+        <activity
+            android:name=".vista.PrestamosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".vista.DetallePrestamoActivity"
+            android:exported="false" />
+
 
     </application>
+
+
 
 </manifest>
