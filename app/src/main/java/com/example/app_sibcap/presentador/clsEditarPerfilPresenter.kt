@@ -2,9 +2,10 @@ package com.example.app_sibcap.presentador
 
 import android.util.Patterns
 import com.example.app_sibcap.vista.EditarPerfilActivity
+import androidx.lifecycle.lifecycleScope
 import com.example.app_sibcap.modelo.clsPerfilModelo
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.CancellationException
+import kotlinx.serialization.SerializationException
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.IOException
@@ -14,12 +15,19 @@ class clsEditarPerfilPresenter(
 ) {
 
     private val modelo = clsPerfilModelo()
+    private var operacionEnCurso = false
 
     fun cargarDatos(token: String) {
 
-        CoroutineScope(Dispatchers.Main).launch {
-            try {
+        if (operacionEnCurso) return
 
+        operacionEnCurso = true
+
+        vista.lifecycleScope.launch {
+
+            vista.mostrarCarga("Cargando información…")
+
+            try {
                 val respuesta = modelo.obtenerPerfil(token)
 
                 if (respuesta.success && respuesta.data != null) {
@@ -28,6 +36,8 @@ class clsEditarPerfilPresenter(
                     vista.mostrarError(respuesta.message)
                 }
 
+            } catch (e: CancellationException) {
+                throw e
             } catch (e: HttpException) {
 
                 val mensaje = when (e.code()) {
@@ -39,13 +49,26 @@ class clsEditarPerfilPresenter(
                 vista.mostrarError(mensaje)
 
             } catch (e: IOException) {
+
                 vista.mostrarError(
                     "Verifica tu conexión a Internet."
                 )
+
+            } catch (e: SerializationException) {
+
+                vista.mostrarError(
+                    "No fue posible interpretar la respuesta del servidor."
+                )
+
+            } finally {
+                operacionEnCurso = false
+
+                if (!vista.isFinishing && !vista.isDestroyed) {
+                    vista.ocultarCarga()
+                }
             }
         }
     }
-
     fun guardarCambios(
         usuario: String,
         correo: String,
@@ -108,7 +131,15 @@ class clsEditarPerfilPresenter(
         correo: String,
         telefono: String
     ) {
-        CoroutineScope(Dispatchers.Main).launch {
+
+        if (operacionEnCurso) return
+
+        operacionEnCurso = true
+
+        vista.lifecycleScope.launch {
+
+            vista.mostrarCarga("Guardando cambios…")
+
             try {
 
                 val respuesta = modelo.actualizarPerfil(
@@ -119,11 +150,14 @@ class clsEditarPerfilPresenter(
                 )
 
                 if (respuesta.success && respuesta.data != null) {
+                    vista.ocultarCarga()
                     vista.mostrarEdicionExitosa()
                 } else {
-                    vista.mostrarError(respuesta.message)
+                    vista.mostrarErrorGuardado(respuesta.message)
                 }
 
+            } catch (e: CancellationException) {
+                throw e
             } catch (e: HttpException) {
 
                 val mensaje = when (e.code()) {
@@ -134,13 +168,31 @@ class clsEditarPerfilPresenter(
                     else -> "No fue posible actualizar el perfil."
                 }
 
-                vista.mostrarError(mensaje)
+                if (e.code() == 401 || e.code() == 404) {
+                    vista.mostrarError(mensaje)
+                } else {
+                    vista.mostrarErrorGuardado(mensaje)
+                }
 
             } catch (e: IOException) {
-                vista.mostrarError(
-                    "Verifica tu conexión a Internet."
+
+                vista.mostrarErrorGuardado(
+                    "No fue posible confirmar los cambios. Verifica tu conexión."
                 )
+
+            } catch (e: SerializationException) {
+
+                vista.mostrarErrorGuardado(
+                    "No fue posible confirmar los cambios. La respuesta del servidor no es válida."
+                )
+
+            } finally {
+                operacionEnCurso = false
+
+                if (!vista.isFinishing && !vista.isDestroyed) {
+                    vista.ocultarCarga()
+                }
+            }
             }
         }
     }
-}

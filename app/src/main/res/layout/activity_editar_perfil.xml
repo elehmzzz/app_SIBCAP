@@ -52,6 +52,35 @@
                 android:textColor="@color/texto_hint"
                 android:textSize="14sp" />
 
+            <!-- Indicador de carga -->
+            <LinearLayout
+                android:id="@+id/contenedorCarga"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:visibility="gone">
+
+                <ProgressBar
+                    android:id="@+id/progresoCarga"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:indeterminate="true"
+                    android:indeterminateTint="@color/lector_primario" />
+
+                <TextView
+                    android:id="@+id/txtEstadoCarga"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:textColor="@color/lector_texto_secundario"
+                    android:textSize="14sp"
+                    android:accessibilityLiveRegion="polite"
+                    tools:text="Cargando información…" />
+
+            </LinearLayout>
+
             <!-- Usuario -->
             <TextView
                 android:layout_width="match_parent"
