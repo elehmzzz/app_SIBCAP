@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lector_fondo"
+    android:orientation="vertical"
+    tools:context=".vista.OpcionesCuentaActivity">
+
+    <!-- Encabezado reutilizable -->
+    <include
+        android:id="@+id/encabezado"
+        layout="@layout/layout_encabezado_regresar" />
+
+    <!-- Contenido desplazable -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="22dp"
+            android:paddingEnd="22dp"
+            android:paddingTop="72dp"
+            android:paddingBottom="40dp">
+
+            <!-- Información superior -->
+            <TextView
+                android:id="@+id/txtInformacionCuenta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tus datos de registro se muestran en Mi perfil. La contraseña nunca es visible."
+                android:textColor="@color/lector_texto_secundario"
+                android:textSize="14sp" />
+
+            <!-- Editar información personal -->
+            <Button
+                android:id="@+id/btnEditarInformacion"
+                android:layout_width="match_parent"
+                android:layout_height="69dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/lector_boton_primario"
+                app:backgroundTint="@color/lector_boton_primario"
+                android:gravity="start|center_vertical"
+                android:paddingStart="17dp"
+                android:paddingEnd="17dp"
+                android:text="Editar información personal ›"
+                android:textAllCaps="false"
+                android:textColor="@color/lector_texto_boton_primario"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!-- Cambiar contraseña -->
+            <Button
+                android:id="@+id/btnCambiarContrasenia"
+                android:layout_width="match_parent"
+                android:layout_height="69dp"
+                android:layout_marginTop="28dp"
+                android:background="@drawable/lector_boton_primario"
+                app:backgroundTint="@color/lector_boton_primario"
+                android:gravity="start|center_vertical"
+                android:paddingStart="17dp"
+                android:paddingEnd="17dp"
+                android:text="Cambiar contraseña ›"
+                android:textAllCaps="false"
+                android:textColor="@color/lector_texto_boton_primario"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!-- Accesibilidad -->
+            <Button
+                android:id="@+id/btnAccesibilidad"
+                android:layout_width="match_parent"
+                android:layout_height="69dp"
+                android:layout_marginTop="28dp"
+                android:background="@drawable/lector_boton_primario"
+                app:backgroundTint="@color/lector_boton_primario"
+                android:gravity="start|center_vertical"
+                android:paddingStart="17dp"
+                android:paddingEnd="17dp"
+                android:text="Accesibilidad ›"
+                android:textAllCaps="false"
+                android:textColor="@color/lector_texto_boton_primario"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!-- Cerrar sesión -->
+            <Button
+                android:id="@+id/btnCerrarSesion"
+                android:layout_width="match_parent"
+                android:layout_height="69dp"
+                android:layout_marginTop="28dp"
+                android:background="@drawable/lector_boton_primario"
+                app:backgroundTint="@color/lector_boton_primario"
+                android:gravity="start|center_vertical"
+                android:paddingStart="17dp"
+                android:paddingEnd="17dp"
+                android:text="Cerrar sesión ›"
+                android:textAllCaps="false"
+                android:textColor="@color/lector_texto_boton_primario"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!-- Información inferior -->
+            <TextView
+                android:id="@+id/txtInformacionAccesibilidad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="44dp"
+                android:text="Las preferencias de accesibilidad son personales y no afectan las cuentas de otros usuarios."
+                android:textColor="@color/lector_texto_secundario"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>
