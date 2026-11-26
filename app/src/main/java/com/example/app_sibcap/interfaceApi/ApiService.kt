@@ -8,6 +8,7 @@ import com.example.app_sibcap.modelo.RegistroResponse
 import com.example.app_sibcap.modelo.dataDetalleLibro
 import com.example.app_sibcap.modelo.dataLibros
 import com.example.app_sibcap.modelo.PerfilResponse
+import com.example.app_sibcap.modelo.ActualizarPerfilRequest
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
@@ -40,5 +41,12 @@ interface ApiService {
     @GET("perfil.php")
     suspend fun obtenerPerfil(
         @Header("Authorization") token: String
+    ): PerfilResponse
+
+    // Actualizar información personal del lector
+    @POST("actualizar_perfil.php")
+    suspend fun actualizarPerfil(
+        @Header("Authorization") token: String,
+        @Body datos: ActualizarPerfilRequest
     ): PerfilResponse
 }
