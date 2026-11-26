@@ -17,7 +17,7 @@ interface PrestamoRepository {
 }
 
 // Aquí se centralizan las llamadas de red de préstamos (el Presenter nunca llama a Retrofit)
-class PrestamoRepositoryImpl(
+class PrestamoRepositoryImpl(//
     private val api: ApiService = RetrofitCliente.apiService
 ) : PrestamoRepository {
 
