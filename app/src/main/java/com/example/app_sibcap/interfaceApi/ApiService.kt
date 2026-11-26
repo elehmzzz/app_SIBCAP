@@ -1,5 +1,4 @@
 package com.example.app_sibcap.interfaceApi
-
 import com.example.app_sibcap.modelo.ApiResponse
 import com.example.app_sibcap.modelo.LoginRequest
 import com.example.app_sibcap.modelo.LoginResponse
@@ -8,6 +7,8 @@ import com.example.app_sibcap.modelo.RegistroResponse
 import com.example.app_sibcap.modelo.dataDetalleLibro
 import com.example.app_sibcap.modelo.dataLibros
 import com.example.app_sibcap.modelo.PerfilResponse
+import com.example.app_sibcap.modelo.PrestamoDetalle
+import com.example.app_sibcap.modelo.PrestamosData
 import com.example.app_sibcap.modelo.ActualizarPerfilRequest
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -43,10 +44,23 @@ interface ApiService {
         @Header("Authorization") token: String
     ): PerfilResponse
 
-    // Actualizar información personal del lector
+    @GET("mis_prestamos.php")
+    suspend fun misPrestamos(
+        @Header("Authorization") token: String
+    ): ApiResponse<PrestamosData>
+
+    //EndPoint para el detalle de un préstamo específico (Hermelinda)
+    @GET("prestamo_detalle.php")
+    suspend fun prestamoDetalle(
+        @Header("Authorization") token: String,
+        @Query("id_prestamo") idPrestamo: Int
+    ): ApiResponse<PrestamoDetalle>
+
+  // Actualizar información personal del lector
     @POST("actualizar_perfil.php")
     suspend fun actualizarPerfil(
         @Header("Authorization") token: String,
         @Body datos: ActualizarPerfilRequest
     ): PerfilResponse
+  
 }
