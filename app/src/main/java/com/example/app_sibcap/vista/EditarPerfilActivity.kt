@@ -1,6 +1,7 @@
 package com.example.app_sibcap.vista
 
 import android.os.Bundle
+import android.content.Intent
 import android.widget.Button
 import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
@@ -11,6 +12,7 @@ import android.app.Dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.WindowManager
+import com.example.app_sibcap.modelo.DatosPerfil
 import com.example.app_sibcap.presentador.clsEditarPerfilPresenter
 
 class EditarPerfilActivity : AppCompatActivity() {
@@ -55,8 +57,54 @@ class EditarPerfilActivity : AppCompatActivity() {
         }
     }
 
+    fun mostrarDatos(datos: DatosPerfil) {
+        edtUsuario.setText(datos.nombreUsuario)
+        edtCorreo.setText(datos.correo)
+        edtTelefono.setText(datos.telefono ?: "")
+    }
+
     fun mostrarError(mensaje: String) {
         Toast.makeText(this, mensaje, Toast.LENGTH_LONG).show()
+    }
+
+    fun mostrarEdicionExitosa() {
+
+        val dialogo = Dialog(this)
+
+        dialogo.setContentView(R.layout.dialog_edicion_exitosa)
+
+        val btnVolverPerfil = dialogo.findViewById<Button>(
+            R.id.btnVolverPerfil
+        )
+
+        btnVolverPerfil.setOnClickListener {
+            dialogo.dismiss()
+
+            val intent = Intent(this, PerfilActivity::class.java)
+
+            intent.addFlags(
+                Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                        Intent.FLAG_ACTIVITY_SINGLE_TOP
+            )
+
+            startActivity(intent)
+            finish()
+        }
+
+        dialogo.setCancelable(false)
+        dialogo.show()
+
+        dialogo.window?.apply {
+            setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+            setLayout(
+                (resources.displayMetrics.widthPixels * 0.88).toInt(),
+                WindowManager.LayoutParams.WRAP_CONTENT
+            )
+
+            addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+            setDimAmount(0.30f)
+        }
     }
 
     fun mostrarConfirmacion(

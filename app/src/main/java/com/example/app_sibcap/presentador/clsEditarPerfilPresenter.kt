@@ -2,10 +2,49 @@ package com.example.app_sibcap.presentador
 
 import android.util.Patterns
 import com.example.app_sibcap.vista.EditarPerfilActivity
+import com.example.app_sibcap.modelo.clsPerfilModelo
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import retrofit2.HttpException
+import java.io.IOException
 
 class clsEditarPerfilPresenter(
     private val vista: EditarPerfilActivity
 ) {
+
+    private val modelo = clsPerfilModelo()
+
+    fun cargarDatos(token: String) {
+
+        CoroutineScope(Dispatchers.Main).launch {
+            try {
+
+                val respuesta = modelo.obtenerPerfil(token)
+
+                if (respuesta.success && respuesta.data != null) {
+                    vista.mostrarDatos(respuesta.data)
+                } else {
+                    vista.mostrarError(respuesta.message)
+                }
+
+            } catch (e: HttpException) {
+
+                val mensaje = when (e.code()) {
+                    401 -> "Tu sesión ha vencido. Inicia sesión nuevamente."
+                    404 -> "No se encontró el perfil del lector."
+                    else -> "No fue posible consultar tus datos."
+                }
+
+                vista.mostrarError(mensaje)
+
+            } catch (e: IOException) {
+                vista.mostrarError(
+                    "Verifica tu conexión a Internet."
+                )
+            }
+        }
+    }
 
     fun guardarCambios(
         usuario: String,
@@ -60,6 +99,48 @@ class clsEditarPerfilPresenter(
         correo: String,
         telefono: String
     ) {
-        // Pendiente: actualizar información mediante el modelo.
+        // Pendiente: obtener el token de sesión.
+    }
+
+    private fun actualizarPerfil(
+        token: String,
+        usuario: String,
+        correo: String,
+        telefono: String
+    ) {
+        CoroutineScope(Dispatchers.Main).launch {
+            try {
+
+                val respuesta = modelo.actualizarPerfil(
+                    token,
+                    usuario,
+                    correo,
+                    telefono
+                )
+
+                if (respuesta.success && respuesta.data != null) {
+                    vista.mostrarEdicionExitosa()
+                } else {
+                    vista.mostrarError(respuesta.message)
+                }
+
+            } catch (e: HttpException) {
+
+                val mensaje = when (e.code()) {
+                    400 -> "Los datos proporcionados no son válidos."
+                    401 -> "Tu sesión ha vencido. Inicia sesión nuevamente."
+                    404 -> "No se encontró el perfil del lector."
+                    409 -> "El correo o nombre de usuario ya está registrado."
+                    else -> "No fue posible actualizar el perfil."
+                }
+
+                vista.mostrarError(mensaje)
+
+            } catch (e: IOException) {
+                vista.mostrarError(
+                    "Verifica tu conexión a Internet."
+                )
+            }
+        }
     }
 }
