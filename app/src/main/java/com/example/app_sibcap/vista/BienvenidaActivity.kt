@@ -74,7 +74,7 @@ class BienvenidaActivity : AppCompatActivity() {
         txtOmitir.setOnClickListener(this::ejecutarIrCatalogo)
 
         // Recuperar el nombre enviado desde el Login
-        presentador.iniciar(intent.getStringExtra("NOMBRE_USUARIO"))
+        presentador.iniciar(intent.getStringExtra("NOMBRE_USUARIO"), intent.getStringExtra("USUARIO"))
     }//cierra el oncreate
 
     fun ejecutarVideo(v: View) {
