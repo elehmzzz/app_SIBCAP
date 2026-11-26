@@ -1,5 +1,8 @@
 package com.example.app_sibcap.modelo
 
+import com.example.app_sibcap.modelo.Prestamo
+import com.example.app_sibcap.utils.Formato
+
 import com.example.app_sibcap.interfaceApi.ApiService
 import kotlinx.coroutines.CancellationException
 import kotlinx.serialization.SerializationException

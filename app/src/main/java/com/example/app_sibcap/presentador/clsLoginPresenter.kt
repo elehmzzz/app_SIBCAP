@@ -8,7 +8,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-
+import com.example.app_sibcap.modelo.SesionManager
 class clsLoginPresenter(private val view: LoginActivity) {
 
     private val modelo = clsLoginModelo()
@@ -28,6 +28,8 @@ class clsLoginPresenter(private val view: LoginActivity) {
                 }
 
                 if (respuesta.exito) {
+                    SesionManager(view).guardar(respuesta.token, respuesta.tipoUsuario, respuesta.nombre)
+
                     val preferencias = clsPreferenciasModelo(view)
                     if (preferencias.yaVioBienvenida(usuario)) {
                         view.abrirCatalogo(respuesta.nombre)
