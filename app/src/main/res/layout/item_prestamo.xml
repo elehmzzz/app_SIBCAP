@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="24dp"
@@ -15,18 +16,31 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <!-- Portada: mientras no haya imagen (portada_url es null) se muestra la inicial del título -->
-        <TextView
-            android:id="@+id/tvItemPortada"
+        <!-- Portada: se muestra la imagen (portada_url); si no hay o falla, queda la inicial del título -->
+        <FrameLayout
             android:layout_width="59dp"
             android:layout_height="96dp"
-            android:layout_marginStart="6dp"
-            android:background="@drawable/bg_portada"
-            android:gravity="center"
-            android:importantForAccessibility="no"
-            android:textColor="@color/sib_blanco"
-            android:textSize="26sp"
-            android:textStyle="bold" />
+            android:layout_marginStart="6dp">
+
+            <TextView
+                android:id="@+id/tvItemPortada"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_portada"
+                android:gravity="center"
+                android:importantForAccessibility="no"
+                android:textColor="@color/sib_blanco"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imgItemPortada"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="Portada del libro"
+                android:scaleType="centerCrop"
+                android:visibility="gone" />
+        </FrameLayout>
 
         <LinearLayout
             android:layout_width="0dp"
@@ -120,6 +134,7 @@
         android:layout_marginTop="34dp"
         android:background="@drawable/bg_boton_estado"
         android:stateListAnimator="@null"
+        app:backgroundTint="@null"
         android:text="Ver detalles"
         android:textAllCaps="false"
         android:textColor="@color/sib_tarjeta"
